@@ -1,20 +1,42 @@
-﻿namespace MergeConflicts
+﻿using System;
+
+namespace MergeConflicts
 {
     public class Validator : IValidator
     {
         public bool IsValidDate(string input)
         {
-            throw new System.NotImplementedException();
+            DateTime thing;
+            try
+            {
+                thing = DateTime.Parse(input);
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool IsValidInt(string input)
         {
-            throw new System.NotImplementedException();
+            int thing;
+            try
+            {
+                thing = int.Parse(input);
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool IsValidString(string input)
         {
-            throw new System.NotImplementedException();
+            return input != null && input != string.Empty;
         }
     }
 }
